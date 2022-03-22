@@ -1,0 +1,49 @@
+title Exercise 0.4  new note
+
+
+note over browser:
+user submits new note. Browser 
+sends POST request to server.
+end note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+
+note over server:
+server updates note array, 
+redirects to /notes and reloads page
+end note
+
+server->browser: Status code: 302 Found redirect to /notes
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+server->browser: HTML page
+
+note over browser:
+Browser parse HTML page and 
+requests CSS and JS files.
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server->browser: main.css
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+server->browser: main.js
+
+note over browser:
+Browser executes JavaScript code which
+prompts request for data.json.
+end note
+
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+
+note over server:
+server returns updated array 
+of notes in json format.
+end note
+
+server->browser: [{content: "Sari <3", date: "2022-03-21T19:01:04.021Z"},…,99: {content: "Namaste, from India", date: "2022-03-22T01:56:19.289Z"}]
+note over browser:
+Browser updates page with new note.
+end note
+
