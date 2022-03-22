@@ -1,0 +1,16 @@
+title Exercise 0.6 New note
+
+note over browser:
+User enters new text and click save
+Text entered is sent to server in json format
+end note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+
+note over server:
+server processes incoming data 
+and responds back to browser
+end note
+
+server-->browser: Status code: 201 {"message":"note created"}
+
